@@ -1,0 +1,20 @@
+import { createSlice } from '@reduxjs/toolkit'
+
+const initialState = {
+  links: []
+}
+
+export const linksSlice = createSlice({
+  name: 'links',
+  initialState,
+  reducers: {
+    add: (state, action) => {
+        state.links.push(action.payload.link)
+    },
+  },
+})
+
+// Action creators are generated for each case reducer function
+export const { add } = linksSlice.actions
+
+export default linksSlice.reducer
