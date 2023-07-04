@@ -1,39 +1,21 @@
 import React, { useState } from "react";
 import { Container, Form, Card, Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { addProfile } from "../../../redux/profileSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addProfile } from "../../../redux/profileSlice/profileSlice";
 import { Store as notification } from 'react-notifications-component';
+import store from "../../../redux/store";
 
 const EditProfileInfoForm = () => {
     const [imgUrl, setImgUrl] = useState("");
     const [username, setUsername] = useState("");
     const [bio, setBio] = useState("");
-    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         try {
-            dispatch(addProfile({ imgUrl, username, bio }));
-
-            setImgUrl("");
-            setUsername("");
-            setBio("");
-
-            notification.addNotification({
-                title: "Success",
-                message: "Profile info updated!",
-                type: "success",
-                insert: "top",
-                container: "top-right",
-                animationIn: ["animate__animated", "animate__fadeIn"],
-                animationOut: ["animate__animated", "animate__fadeOut"],
-                dismiss: {
-                    duration: 5000,
-                    onScreen: true
-                }
-            });
-
+            const profile = { imgUrl, username, bio }
+            store.dispatch(addProfile({ profile: profile }));
         } catch (error) {
             notification.addNotification({
                 title: "Update profile failed",
@@ -48,12 +30,30 @@ const EditProfileInfoForm = () => {
                     onScreen: true
                 }
             })
+        } finally {
+            setImgUrl("");
+            setUsername("");
+            setBio("");
+
+            notification.addNotification({
+                title: "Success",
+                message: "Profile info updated!",
+                type: "success",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
         }
 
     };
 
     return (
-        <Container fluid={"sm"}>
+        <Container fluid={"sm"}>            
             <Card className="mb-3">
                 <Card.Header className="text-center">
                     <h5>Profile Info</h5>

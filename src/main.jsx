@@ -10,8 +10,8 @@ import { ReactNotifications } from 'react-notifications-component'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ReactNotifications />
     <Provider store={store}>
-      <ReactNotifications />
       <App />
     </Provider>
   </React.StrictMode>,

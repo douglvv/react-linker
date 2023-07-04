@@ -19,4 +19,4 @@ export const linksSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { add } = linksSlice.actions
 
-export default linksSlice.reducer
+export const linksReducer = linksSlice.reducer

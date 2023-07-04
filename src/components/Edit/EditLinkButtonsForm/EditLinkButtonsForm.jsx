@@ -2,20 +2,11 @@ import React, { useState } from "react";
 import { Container, Form, Card, Button } from "react-bootstrap";
 
 const EditLinkButtonsForm = () => {
-    // Array de objetos com os botoes
-    // Cada objeto terá title: "" e url: ""
-    // Atraves de um map nesse array, cria cada botão passando as props do state color
-
-
-    // armazenar no redux persist:
-    // profile - img, nome, bio
-    // links - array de objetos
     const [title, setTitle] = useState("")
     const [btnUrl, setBtnUrl] = useState("")
 
     // implementar redux store e persis
     
-    // implementar on submit do form
     return (
         <Container fluid={"sm"}>
             <Card>

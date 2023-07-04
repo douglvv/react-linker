@@ -1,12 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit'
-import linksSlice from './linksSlice'
-import profileSlice from './profileSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import { linksReducer } from './linksSlice/linksSlice';
+import { profileReducer } from './profileSlice/profileSlice';
 
 const store = configureStore({
   reducer: {
-    links: linksSlice,
-    profile: profileSlice
+    links: linksReducer,
+    profile: profileReducer,
   },
-})
+});
 
 export default store;
