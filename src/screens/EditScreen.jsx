@@ -1,8 +1,9 @@
 import React from "react";
+import Header from "../components/Edit/Header/Header";
 
 const EditScreen = () => {
     return(
-        <h1>Edit Screen</h1>
+        <Header />
     );
 };
 
