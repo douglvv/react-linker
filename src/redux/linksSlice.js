@@ -10,6 +10,8 @@ export const linksSlice = createSlice({
   reducers: {
     add: (state, action) => {
         state.links.push(action.payload.link)
+
+        localStorage.setItem('links', state.links);
     },
   },
 })
