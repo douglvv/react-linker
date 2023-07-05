@@ -8,15 +8,16 @@ export const linksSlice = createSlice({
   name: 'links',
   initialState,
   reducers: {
-    add: (state, action) => {
-        state.links.push(action.payload.link)
-
-        localStorage.setItem('links', state.links);
+    addLink: (state, action) => {
+      state.links.push({
+        title: action.payload.link.title,
+        btnUrl: action.payload.link.btnUrl
+      })
     },
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { add } = linksSlice.actions
+
+export const { addLink } = linksSlice.actions
 
 export const linksReducer = linksSlice.reducer

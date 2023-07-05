@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
     const profile = useSelector(state => state.profile.profile);
-        
+    const links = useSelector(state => state.links);
     return(
         <>
         <h1>Home Screen</h1>

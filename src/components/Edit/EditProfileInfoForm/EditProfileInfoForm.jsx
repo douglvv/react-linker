@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, Form, Card, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import { addProfile } from "../../../redux/profileSlice/profileSlice";
 import { Store as notification } from 'react-notifications-component';
 import store from "../../../redux/store";
@@ -16,6 +15,19 @@ const EditProfileInfoForm = () => {
         try {
             const profile = { imgUrl, username, bio }
             store.dispatch(addProfile({ profile: profile }));
+            notification.addNotification({
+                title: "Success",
+                message: "Profile info updated!",
+                type: "success",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
         } catch (error) {
             notification.addNotification({
                 title: "Update profile failed",
@@ -34,27 +46,13 @@ const EditProfileInfoForm = () => {
             setImgUrl("");
             setUsername("");
             setBio("");
-
-            notification.addNotification({
-                title: "Success",
-                message: "Profile info updated!",
-                type: "success",
-                insert: "top",
-                container: "bottom-center",
-                animationIn: ["animate__animated", "animate__fadeIn"],
-                animationOut: ["animate__animated", "animate__fadeOut"],
-                dismiss: {
-                    duration: 5000,
-                    onScreen: true
-                }
-            });
         }
 
     };
 
     return (
-        <Container fluid={"sm"}>            
-            <Card className="mb-3">
+        <Container fluid={"sm"} style={{ maxWidth: '680px' }}>
+            <Card bg="secondary" text="light" className="mb-3">
                 <Card.Header className="text-center">
                     <h5>Profile Info</h5>
                 </Card.Header>
@@ -98,10 +96,10 @@ const EditProfileInfoForm = () => {
                                     required
                                 />
                             </Form.Group>
-                            <Button type="submit" variant="primary">
-                                Save Profile
-                            </Button>
                         </Form.Group>
+                        <div className="d-grid gap-2">
+                            <Button type="submit" variant="primary">Update Profile</Button>
+                        </div>
                     </Form>
                 </Card.Body>
             </Card>
