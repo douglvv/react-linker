@@ -6,13 +6,13 @@ import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
     const profile = useSelector(state => state.profile.profile);
-    // const links = useSelector(state => state.links);
+    const links = useSelector(state => state.links.links);
     
     return(
         <>
         <Container className="bg-light vh-100 mt-0"  fluid={'sm'} style={{maxWidth: '680px'}}>
             <Profile profile={profile} />
-            {/* <LinkButton links={links} /> */}
+            <LinkButton links={links} />
         </Container>
         </>
         
