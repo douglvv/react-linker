@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Container, Form, Card, Button } from "react-bootstrap";
 import { addProfile } from "../../../redux/profileSlice/profileSlice";
+import { useDispatch } from "react-redux";
 import { Store as notification } from 'react-notifications-component';
-import store from "../../../redux/store";
 
-const EditProfileInfoForm = () => {
-    const [imgUrl, setImgUrl] = useState("");
-    const [username, setUsername] = useState("");
-    const [bio, setBio] = useState("");
+
+const EditProfileInfoForm = ({profile}) => {
+    const [imgUrl, setImgUrl] = useState(profile.imgUrl);
+    const [username, setUsername] = useState(profile.username);
+    const [bio, setBio] = useState(profile.bio);
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         try {
             const profile = { imgUrl, username, bio }
-            store.dispatch(addProfile({ profile: profile }));
+            dispatch(addProfile({ profile: profile }));
             notification.addNotification({
                 title: "Success",
                 message: "Profile info updated!",
@@ -104,6 +106,7 @@ const EditProfileInfoForm = () => {
                 </Card.Body>
             </Card>
             <hr />
+            <h1></h1>
         </Container>
     );
 };

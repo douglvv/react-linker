@@ -16,5 +16,13 @@
 .iconButton:hover {
     transform: scale(1.1);
     transition: .25s;
-    box-shadow: 0px 0px 5px 2px lightcyan;
+    box-shadow: 0px 0px 5px 2px darkgray;
+}
+
+.profileImg {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0px 0px 5px 2px darkgray;
 }
