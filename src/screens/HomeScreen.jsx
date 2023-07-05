@@ -1,4 +1,6 @@
 import React from "react";
+import Profile from "../components/Home/Profile/Profile";
+import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
@@ -6,10 +8,9 @@ const HomeScreen = () => {
     const links = useSelector(state => state.links);
     return(
         <>
-        <h1>Home Screen</h1>
-        <h4>{JSON.stringify(profile.imgUrl)}</h4>
-        {/* <h4>{profile.username}</h4>
-        <h4>{profile.bio}</h4> */}
+        <Container className="bg-dark vh-100 mt-0"  fluid={'sm'} style={{maxWidth: '680px'}}>
+            <Profile />
+        </Container>
         </>
         
     );
