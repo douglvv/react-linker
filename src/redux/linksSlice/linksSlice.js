@@ -14,10 +14,13 @@ export const linksSlice = createSlice({
         btnUrl: action.payload.link.btnUrl
       })
     },
+    updateLinks: (state, action) => {
+      state.links = action.payload.links
+    }
   },
 })
 
 
-export const { addLink } = linksSlice.actions
+export const { addLink, updateLinks } = linksSlice.actions
 
 export const linksReducer = linksSlice.reducer

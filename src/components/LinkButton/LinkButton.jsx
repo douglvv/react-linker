@@ -1,23 +1,50 @@
 import React from "react";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Button, ListGroup } from "react-bootstrap";
+import { updateLinks } from "../../redux/linksSlice/linksSlice";
+import { useDispatch } from "react-redux";
 
 const LinkButton = ({ links }) => {
+    const dispatch = useDispatch();
+
+    const onDragEnd = result => {
+        const { destination, source } = result;
+
+        console.log(result)
+        if(!destination) return;
+
+        const linksAux = Array.from(links);
+        const [changedItem] = linksAux.splice(source.index, 1);
+        linksAux.splice(destination.index, 0, changedItem);
+        // console.log(linksAux)
+
+        dispatch(updateLinks({links: linksAux}));
+    }
+
     return (
-        <>
-            <ListGroup>
-                {links.map((link) => (
-                    <ListGroup.Item
-                        key={link.btnUrl}
-                        as={Button}
-                        variant="primary"
-                        href={link.btnUrl}
-                        className="mb-3"
-                    >
-                        {link.title}
-                    </ListGroup.Item>
-                ))}
-            </ListGroup>
-        </>
+        <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="buttons">
+                {(provided) => (
+                    <ul ref={provided.innerRef} {...provided.droppableProps}>
+                        {links.map((link, index) => (
+                            <Draggable key={link.btnUrl} index={index} draggableId={link.btnUrl}>
+                                {(provided) => (
+                                    <li
+                                        ref={provided.innerRef}
+                                        {...provided.dragHandleProps}
+                                        {...provided.draggableProps}
+                                        className="mb-3"
+                                    >
+                                        <a href={link.btnUrl}>{link.title}</a>
+                                    </li>
+                                )}
+                            </Draggable>
+                        ))}
+                        {provided.placeholder}
+                    </ul>
+                )}
+            </Droppable>
+        </DragDropContext>
     );
 };
 

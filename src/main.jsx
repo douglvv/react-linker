@@ -11,12 +11,13 @@ import 'react-notifications-component/dist/theme.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ReactNotifications />
+  // <React.StrictMode>
+    
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+      <ReactNotifications />
         <App />
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  // </React.StrictMode>
 )
