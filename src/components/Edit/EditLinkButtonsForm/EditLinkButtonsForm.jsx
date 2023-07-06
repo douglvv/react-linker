@@ -53,17 +53,17 @@ const EditLinkButtonsForm = () => {
 
     return (
         <Container fluid={"sm"} style={{ maxWidth: '680px' }}>
-            <Card bg="secondary" text="light">
+            <Card className="mb-3" bg="secondary" text="light">
                 <Card.Header className="text-center">
                     <h5>Links</h5>
                 </Card.Header>
                 <Card.Body>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
-                            <Form.Label>link Title</Form.Label>
+                            <Form.Label>Link Title</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="The title for your button"
+                                placeholder="Your link's title"
                                 value={title}
                                 onChange={(e) => { setTitle(e.target.value) }}
                                 className="mb-3"
@@ -73,7 +73,7 @@ const EditLinkButtonsForm = () => {
                                 <Form.Label>Link URL</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder="The url for your button"
+                                    placeholder="Your link's URL"
                                     value={btnUrl}
                                     onChange={(e) => { setBtnUrl(e.target.value) }}
                                     className="mb-3"
@@ -89,7 +89,7 @@ const EditLinkButtonsForm = () => {
                 </Card.Body>
             </Card>
 
-            {links && <h1>{JSON.stringify(links)}</h1>}
+            {/* {links && <h1>{JSON.stringify(links)}</h1>} */}
 
         </Container>
     );

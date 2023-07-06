@@ -32,6 +32,7 @@ const LinkButton = ({ links }) => {
                     className="mb-3 d-flex align-items-center"
                     href={link.btnUrl}
                     variant="primary"
+                    size="lg"
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                   >
