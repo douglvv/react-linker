@@ -8,14 +8,15 @@ const LinkButton = ({ links }) => {
     const dispatch = useDispatch();
 
     const onDragEnd = result => {
-        const { destination, source } = result;
-
-        console.log(result)
+        // console.log(result)
+        const { source, destination } = result;
+        
         if(!destination) return;
 
         const linksAux = Array.from(links);
-        const [changedItem] = linksAux.splice(source.index, 1);
-        linksAux.splice(destination.index, 0, changedItem);
+        const [movedLink] = linksAux.splice(source.index, 1);
+        linksAux.splice(destination.index, 0, movedLink);
+        
         // console.log(linksAux)
 
         dispatch(updateLinks({links: linksAux}));
