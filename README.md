@@ -1,6 +1,6 @@
 # react-linker
 
-<img src="https://raw.githubusercontent.com/douglvv/appControleFabrica/main/public/img/ghjgj.png" alt="Main Screen">
+<img src="https://github.com/douglvv/react-linker/blob/main/preview/preview.gif?raw=true" alt="preview">
 
 > Aplicação similiar ao Linktree, desenvolvida com o intuito de utilizar as bibliotecas `react-redux-persist` e `react-beautiful-dnd` em conjunto. As informaçoes do perfil são armazenadas no storage do redux, o usuário pode fazer o drag e alterar a ordem dos links, as alterações são salvas automaticamente no storage.
 > 
@@ -27,6 +27,9 @@ npm install
 ```
 npm run dev
 ```
+```
 A partir desse momento a aplicação estará rodando
 ```
+
+
 [⬆ Voltar ao topo](#react-linker)<br>
