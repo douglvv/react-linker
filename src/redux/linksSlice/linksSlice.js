@@ -16,11 +16,15 @@ export const linksSlice = createSlice({
     },
     updateLinks: (state, action) => {
       state.links = action.payload.links
+    },
+    deleteLink: (state, action) => {
+      const index = action.payload
+      state.links.splice(index, 1);
     }
   },
 })
 
 
-export const { addLink, updateLinks } = linksSlice.actions
+export const { addLink, updateLinks, deleteLink } = linksSlice.actions
 
 export const linksReducer = linksSlice.reducer

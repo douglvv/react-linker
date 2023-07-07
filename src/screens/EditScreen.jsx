@@ -6,12 +6,13 @@ import { useSelector } from "react-redux";
 
 const EditScreen = () => {
     const profile = useSelector(state => state.profile.profile)
+    const links = useSelector(state => state.links.links)
     
     return (
         <>
             <Header />
             <EditProfileInfoForm profile={profile}/>
-            <EditLinkButtonsForm />
+            <EditLinkButtonsForm links={links} />
         </>
 
     );
