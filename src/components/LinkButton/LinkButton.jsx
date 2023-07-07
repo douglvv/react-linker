@@ -37,7 +37,7 @@ const LinkButton = ({ links }) => {
                     ref={provided.innerRef}
                   >
                     <div {...provided.dragHandleProps}>
-                      <MdDragHandle className="fs-3"/>
+                      <MdDragHandle title="Drag to reorder" className="fs-3"/>
                     </div>
                     <div className="flex-grow-1 text-center">{link.title}</div>
                   </Button>

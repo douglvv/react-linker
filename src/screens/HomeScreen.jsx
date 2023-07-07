@@ -10,7 +10,7 @@ const HomeScreen = () => {
     
     return(
         <>
-        <Container className="bg-light vh-100 mt-0"  fluid={'sm'} style={{maxWidth: '680px'}}>
+        <Container className=" vh-100 mt-0"  fluid={'sm'} style={{maxWidth: '680px'}}>
             <Profile profile={profile} />
             <LinkButton links={links} />
         </Container>
