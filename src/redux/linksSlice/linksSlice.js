@@ -18,7 +18,7 @@ export const linksSlice = createSlice({
       state.links = action.payload.links
     },
     deleteLink: (state, action) => {
-      const index = action.payload
+      const index = action.payload.index
       state.links.splice(index, 1);
     }
   },

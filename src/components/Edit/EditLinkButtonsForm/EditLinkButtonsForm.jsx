@@ -8,7 +8,6 @@ import { AiOutlineDelete } from 'react-icons/ai'
 const EditLinkButtonsForm = ({ links }) => {
     const [title, setTitle] = useState("")
     const [btnUrl, setBtnUrl] = useState("")
-    // const links = useSelector(state => state.links);
     const dispatch = useDispatch();
 
 
@@ -19,34 +18,34 @@ const EditLinkButtonsForm = ({ links }) => {
             const link = { title, btnUrl };
             dispatch(addLink({ link: link }));
 
-            // notification.addNotification({
-            //     title: "Success",
-            //     message: "Link added successfully",
-            //     type: "success",
-            //     insert: "top",
-            //     container: "bottom-center",
-            //     animationIn: ["animate__animated", "animate__fadeIn"],
-            //     animationOut: ["animate__animated", "animate__fadeOut"],
-            //     dismiss: {
-            //         duration: 5000,
-            //         onScreen: true
-            //     }
-            // });
+            notification.addNotification({
+                title: "Success",
+                message: "Link added successfully",
+                type: "success",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 3000,
+                    onScreen: true
+                }
+            });
         } catch (error) {
            console.log(error.message)
-            // notification.addNotification({
-            //     title: "Update link failed",
-            //     message: `${error.message}`,
-            //     type: "danger",
-            //     insert: "top",
-            //     container: "bottom-center",
-            //     animationIn: ["animate__animated", "animate__fadeIn"],
-            //     animationOut: ["animate__animated", "animate__fadeOut"],
-            //     dismiss: {
-            //         duration: 5000,
-            //         onScreen: true
-            //     }
-            // })
+            notification.addNotification({
+                title: "Update link failed",
+                message: `${error.message}`,
+                type: "danger",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 3000,
+                    onScreen: true
+                }
+            })
         } finally {
             setTitle("");
             setBtnUrl("");
@@ -57,33 +56,34 @@ const EditLinkButtonsForm = ({ links }) => {
         try {
             dispatch(deleteLink({index: index}));
 
-            // notification.addNotification({
-            //     title: "Success",
-            //     message: "Link deleted successfully",
-            //     type: "success",
-            //     insert: "top",
-            //     container: "bottom-center",
-            //     animationIn: ["animate__animated", "animate__fadeIn"],
-            //     animationOut: ["animate__animated", "animate__fadeOut"],
-            //     dismiss: {
-            //         duration: 5000,
-            //         onScreen: true
-            //     }
-            // });
+            notification.addNotification({
+                title: "Success",
+                message: "Link deleted successfully",
+                type: "success",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 3000,
+                    onScreen: true
+                }
+            });
+
         } catch (error) {
-            // notification.addNotification({
-            //     title: "Fail",
-            //     message: `${error.message}`,
-            //     type: "success",
-            //     insert: "top",
-            //     container: "bottom-center",
-            //     animationIn: ["animate__animated", "animate__fadeIn"],
-            //     animationOut: ["animate__animated", "animate__fadeOut"],
-            //     dismiss: {
-            //         duration: 5000,
-            //         onScreen: true
-            //     }
-            // });
+            notification.addNotification({
+                title: "Delete link failed",
+                message: `${error.message}`,
+                type: "danger",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 3000,
+                    onScreen: true
+                }
+            })
         }
     }
 
@@ -130,7 +130,7 @@ const EditLinkButtonsForm = ({ links }) => {
                     <h5>Delete Links</h5>
                 </Card.Header>
                 <Card.Body>
-                    <Table responsive="sm" striped bordered hover>
+                    <Table responsive="sm"  size="sm" striped borderless hover>
                         <thead>
                             <tr>
                                 <th>#</th>

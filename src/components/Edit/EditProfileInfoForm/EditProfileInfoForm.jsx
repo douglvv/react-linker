@@ -26,7 +26,7 @@ const EditProfileInfoForm = ({profile}) => {
                 animationIn: ["animate__animated", "animate__fadeIn"],
                 animationOut: ["animate__animated", "animate__fadeOut"],
                 dismiss: {
-                    duration: 5000,
+                    duration: 3000,
                     onScreen: true
                 }
             });
@@ -40,7 +40,7 @@ const EditProfileInfoForm = ({profile}) => {
                 animationIn: ["animate__animated", "animate__fadeIn"],
                 animationOut: ["animate__animated", "animate__fadeOut"],
                 dismiss: {
-                    duration: 5000,
+                    duration: 3000,
                     onScreen: true
                 }
             })
@@ -106,7 +106,6 @@ const EditProfileInfoForm = ({profile}) => {
                 </Card.Body>
             </Card>
             <hr />
-            <h1></h1>
         </Container>
     );
 };
