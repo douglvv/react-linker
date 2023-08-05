@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './styles.module.css'
 import { Row, Col, Image, Badge } from "react-bootstrap";
-import { SlOptions, SlShare } from 'react-icons/Sl'
+import { SlOptions, SlShare } from 'react-icons'
 
 const Profile = ({ profile }) => {
     return (
